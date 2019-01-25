@@ -18,5 +18,10 @@ body {
     font-size: 35px;
     text-align: center;
     margin-top: 30px;
-    text-shadow: 2px 2px 8px #000000;
+    text-shadow: 2px 2px 8px #a12626;
 }
+#timer {
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 8px #a12626;
+}    

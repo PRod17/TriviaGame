@@ -7,95 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
    
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* div#test {
-            border: #000 1px solid;
-            padding: 10px 50px 50px 50px;
-        } */
+       
     </style>
 
+<embed src= "Super_Mario.mp3" autoplay="true" height= "0" width="0">
+
 </head>
-<script>    
-    
-    var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
-    var questions = [
-        ["What is the highest grossing Arcade Game of all time?", "Frogger", "Donkey Kong", "Pac-Man", "Space Invaders", "C"],
-        ["Made famous by Mario Bros, What was Mario's profession?", "Race Car Driver", "Plumber", "Barber", "Prince", "B"],
-        ["What color is Ms.PacMan's bow?", "Red", "Blue", "Pink", "Orange", "A"],
-        ["Chun Li was a poplar character in which game?", "Mortal Kombat", "Punch Out", "Call of Duty", "Street Fighter", "D"],
-        ["What is the most popular Home Game Console of all time?", "Nintendo", "XBox 360", "PlayStation 2", "Atari 2600", "C"],
-        ["Which of these popular games used directional 'Ball' instead of a traditional joystick?", "Pong", "Missle Command", "Centipede", "Galaga", "C"],
-        ["The original arcade game 'Tapper' was sponsered by which popular drink?", "A & W Rootbeer", "Budweiser", "Coors", "Coca Cola", "B"],
-        ["How many buttons did the Atari 2600 joystick have?", "One", "Two", "Four", "Six", "A"],
-        ["Who was the smallest character in the original 'Mario Kart'?", "Mario", "Toad", "Princess Peach", "Yoshi", "B"],
-        ["In the game 'Mortal Kombat' Scorpion wore what color?", "Yellow/Black", "Green/Black", "Blue/Black", "Red/Black", "A"],
-        ["Ultra Bonus Question === 'Up, Up, Down, Down, Left, Right, Left, Right, B, A, START...was a famous cheat code from what game?", "Metal Gear", "Sonic The Hedgehog", "Contra", "Super Mario Bros", "C"]
-    ];
 
-    function _(x) {
-        return document.getElementById(x);
-    
-
-    };
-    function renderQuestion() {
-        test = _("test");
-        if(pos >=questions.length){
-            test.innerHTML = "<h2> You Answered "+correct+" of "+questions.length+" Questions Correct!</h2>";
-            _("test_status").innerHTML = "Triva Completed!";
-            pos = 0;
-            correct = 0;
-            return false;
-        }
-        _("test_status").innerHTML = "Question "+(pos + 1)+" of "+questions.length;
-
-        question = questions[pos][0];
-        chA = questions[pos][1];
-        chB = questions[pos][2];
-        chC = questions[pos][3];
-        chD = questions[pos][4];
-        test.innerHTML = "<h3>"+question+"</h3>";
-        test.innerHTML += "<input type='radio' name='choices' value='A'> " + chA + "<br>";
-        test.innerHTML += "<input type='radio' name='choices' value='B'> " + chB + "<br>";
-        test.innerHTML += "<input type='radio' name='choices' value='C'> " + chC + "<br>";
-        test.innerHTML += "<input type='radio' name='choices' value='D'> " + chD + "<br>";
-        test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
-    };
-
-    function checkAnswer() {
-        choices = document.getElementsByName("choices");
-        for(var i=0; i<choices.length; i++){
-            if(choices[i].checked){
-                choice = choices[i].value;
-            }
-        }
-
-        if(choice === questions[pos][5]){
-            correct++;
-        }
-        pos++;
-        renderQuestion();
-
-
-
-    };
-    window.addEventListener("load", renderQuestion, false);
-</script>
 
 <body>
-    <!-- <h1>This is my page!</h1>
-    <p id="thisIsMyParagraph">Hi!</p>
+    
 
-    <p id="directions">Welcome to Video Game Trivia, test your knowledge of some popular video games. Do your best and
-        beware there is a timer so answer quickly. Good luck!!</p> -->
-
+    <div id="timer"></div>
     <h2 id="test_status"></h2>
     <div id="test"></div>
 
 
+    
 
 
 
