@@ -1,27 +1,27 @@
-$(document).ready(function () {
-    
+
     var secondsLeft = 150;
     var timer = setInterval(startClock, 1000);
-    function stopTimer()
-    {
+    function stopTimer() {
         clearInterval(timer);
     }
-    function startClock(){
+    function startClock() {
         secondsLeft--
-        if(secondsLeft>0){
-            
+        if (secondsLeft > 0) {
+
         }
         $("#timer").text(secondsLeft);
-        
-        if(secondsLeft===0){
+
+        if (secondsLeft === 0) {
             $("#timer").text("Time's Up!");
             stopTimer();
         }
     }
     
+    startClock();   
+    
+    var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct;
+    var correct = 0;
 
-
-    var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, chD, correct = 0;
     var questions = [
         ["What is the highest grossing Arcade Game of all time?", "Frogger", "Donkey Kong", "Pac-Man", "Space Invaders", "C"],
         ["Made famous by Mario Bros, What was Mario's profession?", "Race Car Driver", "Plumber", "Barber", "Prince", "B"],
@@ -36,29 +36,30 @@ $(document).ready(function () {
         ["Ultra Bonus Question === 'Up, Up, Down, Down, Left, Right, Left, Right, B, A, START...was a famous cheat code from what game?", "Metal Gear", "Sonic The Hedgehog", "Contra", "Super Mario Bros", "C"]
     ];
 
-    function _(x) {
-        return document.getElementById(x);
-    
+    function quiz(i) {
+        return document.getElementById(i);
+
+
 
     };
     function renderQuestion() {
-        
-        test = _("test");
-        if(pos >=questions.length){
-            test.innerHTML = "<h2> You Answered "+correct+" of "+questions.length+" Questions Correct!</h2>";
-            _("test_status").innerHTML = "Triva Completed!";
+        test = quiz("test");
+        if (pos >= questions.length) {
+            $(test.innerHTML = "<h2> You Answered " + correct + " of " + questions.length + " Questions Correct!</h2>");
+            quiz("test_status").innerHTML = "Triva Completed!";
             pos = 0;
             correct = 0;
             return false;
         }
-        _("test_status").innerHTML = "Question "+(pos + 1)+" of "+questions.length;
+
+        $(test_status, ("test_status").innerHTML = "Question " + (pos + 1) + " of " + questions.length);
 
         question = questions[pos][0];
         chA = questions[pos][1];
         chB = questions[pos][2];
         chC = questions[pos][3];
         chD = questions[pos][4];
-        test.innerHTML = "<h3>"+question+"</h3>";
+        test.innerHTML = "<h3>" + question + "</h3>";
         test.innerHTML += "<input type='radio' name='choices' value='A'> " + chA + "<br>";
         test.innerHTML += "<input type='radio' name='choices' value='B'> " + chB + "<br>";
         test.innerHTML += "<input type='radio' name='choices' value='C'> " + chC + "<br>";
@@ -68,13 +69,13 @@ $(document).ready(function () {
 
     function checkAnswer() {
         choices = document.getElementsByName("choices");
-        for(var i=0; i<choices.length; i++){
-            if(choices[i].checked){
+        for (var i = 0; i < choices.length; i++) {
+            if (choices[i].checked) {
                 choice = choices[i].value;
             }
         }
 
-        if(choice === questions[pos][5]){
+        if (choice === questions[pos][5]) {
             correct++;
         }
         pos++;
@@ -84,17 +85,4 @@ $(document).ready(function () {
 
     };
     window.addEventListener("load", renderQuestion, false);
-    startClock ();
-
-
-
-
-
-
-
-
-
-
-
-
-});
+    
